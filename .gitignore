@@ -1,0 +1,35 @@
+# Dependencies (only present if you add a build step later)
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output (if you later add Vite)
+dist/
+.cache/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# Logs / env
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+
+# Local notes
+scratch/
+TODO.local.md
+
+# Editor / harness local config (not part of the shippable app)
+.claude/
+
+# NOTE: WEBHOOK_URL in js/config.js is NOT a secret (write-only public
+# endpoint) and is intentionally committed. Do not put real secrets in
+# this repo — there's no server here to keep them on.

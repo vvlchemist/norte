@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#0f1d17" />
+
+  <title>Norte — ¿Tu plata te va a alcanzar cuando dejes de trabajar?</title>
+  <meta name="description" content="Descubrí en 1 minuto si tu pensión te va a alcanzar — y mirá cómo podrías cambiarlo invirtiendo desde $10 al mes. Gratis, educativo, sin asesoría." />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="¿Tu plata te va a alcanzar cuando dejes de trabajar?" />
+  <meta property="og:description" content="Calculá tu futuro financiero en 1 minuto. Gratis." />
+  <meta property="og:locale" content="es_CR" />
+
+  <!-- Favicon: inline compass/north star (no binary asset needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f1d17'/%3E%3Cpath d='M16 6l3 7 7 3-7 3-3 7-3-7-7-3 7-3z' fill='%2310b981'/%3E%3C/svg%3E" />
+
+  <!-- Fonts: Fraunces (display, personality) + Inter (body, clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Chart.js via CDN (deferred). The app degrades gracefully if it fails. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <!-- ============================ Header ============================ -->
+  <header class="site-header">
+    <a class="brand" href="#" data-action="go-home" aria-label="Norte">
+      <svg class="brand__mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+        <path d="M16 4l3.4 8.6L28 16l-8.6 3.4L16 28l-3.4-8.6L4 16l8.6-3.4z" fill="currentColor"/>
+      </svg>
+      <span class="brand__name">Norte</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <button class="nav-link" type="button" data-action="open-content" data-i18n="nav.learn">Aprender</button>
+      <button class="nav-link nav-link--cta" type="button" data-action="start-calc" data-from="nav" data-i18n="nav.calculate">Calcular</button>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================ Hero ============================ -->
+    <section class="view view--active hero" data-view="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <p class="hero__eyebrow" data-i18n="hero.eyebrow">Pensión IVM + inversión</p>
+        <h1 class="hero__title" id="hero-title" data-focus data-i18n="hero.title">
+          ¿Tu plata te va a alcanzar cuando dejes de trabajar?
+        </h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
+          Descubrílo en 1 minuto — y mirá cómo podrías cambiarlo invirtiendo desde $10 al mes.
+        </p>
+        <button class="btn btn--primary btn--lg" type="button" data-action="start-calc" data-from="hero" data-i18n="hero.cta">
+          Calcular mi futuro
+        </button>
+        <p class="hero__note" data-i18n="hero.note">Gratis. Sin cuentas. Sin letra chiquita rara.</p>
+
+        <ul class="hero__trust" aria-hidden="false">
+          <li data-i18n="hero.trust1">Toma 1 minuto</li>
+          <li data-i18n="hero.trust2">100% gratis</li>
+          <li data-i18n="hero.trust3">Sin asesoría, solo claridad</li>
+        </ul>
+      </div>
+
+      <!-- Decorative "two paths" backdrop -->
+      <div class="hero__art" aria-hidden="true">
+        <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+          <path class="hero__path hero__path--up" d="M0,170 C120,160 200,120 400,20" />
+          <path class="hero__path hero__path--flat" d="M0,170 C120,168 280,165 400,160" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ========================= Calculator ========================= -->
+    <section class="view" data-view="calc" hidden aria-labelledby="calc-heading">
+      <h2 id="calc-heading" class="visually-hidden">Calculadora</h2>
+      <div id="calc-stage" class="stage"><!-- steps render here --></div>
+    </section>
+
+    <!-- ========================== Results ========================== -->
+    <section class="view" data-view="results" hidden aria-labelledby="results-heading">
+      <h2 id="results-heading" class="visually-hidden">Resultados</h2>
+      <div id="results-stage" class="stage stage--wide"><!-- results render here --></div>
+    </section>
+
+    <!-- =========================== Thanks =========================== -->
+    <section class="view" data-view="thanks" hidden>
+      <div id="thanks-stage" class="stage"><!-- thank-you renders here --></div>
+    </section>
+
+    <!-- ========================== Content =========================== -->
+    <section class="view" data-view="content" hidden>
+      <div id="content-stage" class="stage stage--wide"><!-- article list renders here --></div>
+    </section>
+
+    <!-- ====================== Article detail ======================= -->
+    <section class="view" data-view="article" hidden>
+      <div id="article-stage" class="stage"><!-- single article renders here --></div>
+    </section>
+
+  </main>
+
+  <!-- ============================ Footer ============================ -->
+  <footer class="site-footer">
+    <div class="site-footer__disclaimer">
+      <strong data-i18n="disclaimer.short">Estimación educativa, no asesoría financiera.</strong>
+      <p data-i18n="disclaimer.full">
+        Esto es una estimación educativa, no asesoría financiera. Invertir implica riesgo, incluida
+        la posible pérdida de capital. Los rendimientos pasados no garantizan resultados futuros.
+      </p>
+    </div>
+    <div class="site-footer__meta">
+      <p data-i18n="footer.disclaimer"></p>
+      <div class="site-footer__row">
+        <span data-i18n-tpl="footer.copyright">© Norte</span>
+        <span data-i18n="footer.madeIn">Hecho en Costa Rica 🇨🇷</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
